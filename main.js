@@ -47,21 +47,14 @@ $("#backs").on("click", function() {
  
 // alert($("#cards").html());
   
-if (i<stock.length) {
- $("#num").html(stock[i].name);
- $("#cardc").html(stock[i].suitcode);
- 
- $("#num").css("color",stock[i].color);
- $("#cardc").css("color",stock[i].color);
-  i++;
- } 
-  else { 
-    i=0;
-     $("#num").html(stock[i].name);
-    $("#cardc").html(stock[i].suitcode);
-     $("#num").css("color",stock[i].color);
- $("#cardc").css("color",stock[i].color);
-  }
+if (0<closedAr.length) {
+    openedAr.push(closedAr.pop());
+    setOpened();
+   } 
+   else 
+   { 
+     $("#cards").html('end of stock - click refill');
+   }
   
   
   
@@ -136,8 +129,19 @@ function setOpened () {
 opencont = '<div id ="cardc" class = "card" >'+openedAr[openedAr.length-1].name+ '</div>'+
            '<div id="num"> '+openedAr[openedAr.length-1].suitcode +' </div>';
 
- $("#currents").html(opencont);          
+ $("#currents").html(opencont);     
+
+ 
+ $("#num").css("color",openedAr[openedAr.length-1].color);
+ $("#cardc").css("color",openedAr[openedAr.length-1].color);
+
+
 }
+
+
+
+
+
 function setHand() {
 var handcont ='';
 for (var j=0;j< playerAr.length; j++) {
@@ -165,10 +169,12 @@ console.log(selectedCard[1]);
 for (var j=0;j< playerAr.length; j++) {
   if ((playerAr[j].name==selectedCard[0]) && (playerAr[j].suit = selectedCard[1])) {
     openedAr.push(playerAr[j]);
+    playerAr.splice(j, 1);
   }
 
 }
 setOpened();
+setHand();
 
  
 });
