@@ -1,0 +1,87 @@
+<html lang="en">
+<head>
+ 
+    <!-- Bootstrap Core CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+  <link href="main.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+
+<div class="btn-group-vertical" role="group" aria-label="...">
+  <button type="button" class="btn btn-default" id ="start" onclick=initgame()>start</button>
+  <button type="button" class="btn btn-default" onclick = checkArr() >cancel</button>
+  <button type="button" class="btn btn-default">Right</button>
+</div>
+<button class="btn btn-primary" type="button">
+  Turn <span class="badge" id="move">you</span>
+</button>
+<div class="container">
+  
+ <div class="row">
+ <div class="col-lg-3 col-md-6">
+ <div class="service-box" id="backs">
+
+ <div id="cards" class = "card">III</div> 
+ </div>
+ </div>
+ <div class="col-lg-3 col-md-6 ">
+ <div class="service-box " id ="currents">
+ 
+ <div id ="cardc" class = "card" >0 </div>
+ <div id="num"> 0 </div></div></div> 
+ <div id ="ii" class="col-xs-3 col-md-6 ">
+   <div class ="cardii">0
+    <div id="num1"> X </div>
+    </div>
+ <div class ="cardii">0 
+   <div id="num1"> X </div>
+   </div>
+   <div class ="cardii">0 
+   <div id="num2"> X </div>
+   </div>
+   <div class ="cardii"> 0
+   <div id="num3"> X </div>
+   </div>
+   <div class ="cardii">0
+   <div id="num4"> X </div>
+   </div>
+
+ </div>
+ <div id ="hand" class="col-xs-3 col-md-6 ">
+  
+    
+ <div class ="cardh">&#x2661 
+   <div id="num1"> 3 </div>
+   </div>
+ <div class ="cardh">&#x2661 
+   <div id="num1"> 3 </div>
+   </div>
+   <div class ="cardh">&#x2661 
+   <div id="num2"> 3 </div>
+   </div>
+   <div class ="cardh">&#x2661 
+   <div id="num3"> 3 </div>
+   </div>
+   <div class ="cardh">&#x2661 
+   <div id="num4"> 3 </div>
+   </div>
+ 
+</div>
+  </div>
+ </div>
+
+   <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  
+    <!-- Theme JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.0/jquery-ui.min.js"></script>
+  <script src="main.js"></script>
+</body>
+
+</html>

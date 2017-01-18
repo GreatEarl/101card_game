@@ -1,0 +1,53 @@
+.thumbnail {
+height: 180px; width: 180px; display: block;
+}
+
+.card  {
+  font-size:180px;
+  text-align:right;
+  z-index: 99;
+  margin-top:-50px;
+  margin-right: 40px;
+  cursor:pointer;
+  border:solid;
+}
+
+#num {
+  margin-top:-210px;
+  color:black;
+  font-size:130px;
+  text-align:left;
+  margin-left: 30px;
+  z-index: 99;
+}
+
+.container{
+  margin-top: 70px;
+}
+.cardii  {
+  font-size:30px;
+  text-align:center;
+  z-index: 99;
+  margin-top:-70px;
+  margin-right: 40px;
+  cursor:pointer;
+  border:solid;
+  width:60px;
+  display:inline-block;
+};
+
+#ii, #hand{
+  width:300px;
+}
+
+.cardh  {
+  font-size:30px;
+  text-align:center;
+  z-index: 999;
+  margin-top:50px;
+  margin-right: 40px;
+  cursor:pointer;
+  border:solid;
+  width:60px;
+  display:inline-block;
+};
