@@ -7,16 +7,20 @@
 
 </head>
 
-<body id="page-top">
-
-<div class="btn-group-vertical" role="group" aria-label="...">
-  <button type="button" class="btn btn-default" id ="start" onclick=initgame()>start</button>
-  <button type="button" class="btn btn-default" onclick = checkArr() >cancel</button>
-  <button type="button" class="btn btn-default">Right</button>
+<body id="page-top" onload="initgame()">
+<div id ="indicators_gr" class="container" style="float:right; width: 100px; margin-top: -50px; margin-right: 20px;" >
+<div class="btn-group-vertical  btn" role="group" >
+  <button type="button" class="btn btn-default" id ="start" onclick=initgame()>start game</button>
+  <button type="button" class="btn btn-default" id ="next" onclick=initround()>next round</button>
+  <button type="button" class="btn btn-default" onclick = checkArr() >drop card</button>
+  <button type="button" class="btn btn-default" onclick = setiiArr() >ii take</button>
 </div>
-<button class="btn btn-primary" type="button">
+
+<button class="btn btn-primary btn-group-vertical" type="button" >
   Turn <span class="badge" id="move">you</span>
 </button>
+</div>
+
 <div class="container">
   
  <div class="row">
@@ -71,6 +75,34 @@
 </div>
   </div>
  </div>
+
+<div class="container">
+  
+ <div class="row">
+ <div class="col-lg-3 col-md-6">
+<table class = "table">
+  <caption>Results</caption>
+  <thead>
+        <tr>
+            <th>#</th>
+            <th> Player </th>
+            <th> II </th>
+      </tr>
+  </thead>
+
+  <tbody id = "resBody">
+      <tr>
+        <td>1</td>
+        <td>1</td>
+        <td>1</td>
+     </tr>
+
+  </tbody>
+</table>
+</div>
+  </div>
+ </div>
+
 
    <!-- jQuery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
