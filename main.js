@@ -164,7 +164,7 @@ console.log('initround2');
  setHand();
  setII();
  setOpened();
- $("#cards").html('stock');
+ //$("#cards").html('stock');
 
 }
 
@@ -216,11 +216,14 @@ function setHand() {
     var handcont ='';
     for (var j=0;j< playerAr.length; j++) {
     handcont = handcont + 
-    ' <div id="'+playerAr[j].name +'of'+playerAr[j].suit  +'" class ="cardh" >'+playerAr[j].suitcode +
-    '<div id="sname" > '+playerAr[j].name +'</div>'+
+    ' <div id="'+playerAr[j].name +'of'+playerAr[j].suit  +'" class ="cardh"  style="color:'+playerAr[j].color+'">'+playerAr[j].suitcode +
+    '<div id="sname" style="color:'+playerAr[j].color+'"> '+playerAr[j].name +'</div>'+
     '</div>'
     }
     $("#hand").html(handcont);
+     
+  //   $("#'+playerAr[j].name +'of'+playerAr[j].suit  +'").css("color",playerAr[j].color);
+   // $("#sname").css("color",playerAr[j].color);
   
   if (playerAr.length == 0) {
      console.log('game over');
@@ -237,9 +240,13 @@ function setII() {
 var IIcont ='';
 for (var j=0;j< iiAr.length; j++) {
 IIcont = IIcont + 
-' <div id="'+iiAr[j].name +'of'+iiAr[j].suit  +'" class ="cardii" > &#x2169'+
-   '<div id="sname" > &#x2169 </div>'+
-   '</div>'
+//' <div id="'+iiAr[j].name +'of'+iiAr[j].suit  +'" class ="cardii" > &#x2169'+
+//   '<div id="sname" > &#x2169 </div>'+
+//   '</div>'
+
+' <div id="'+iiAr[j].name +'of'+iiAr[j].suit  +'" class ="cardii" > <img src="back_sm.jpg"/> </div>'
+
+
 }
 
 $("#ii").html(IIcont);
@@ -258,7 +265,7 @@ function releasecard () {
   alert(target);
 }
 
-$("#hand").on("click", function(event) {
+$('#hand').on("click", function(event) {
    // var target = $(this).html();
   var str = event.target.id;
 var selectedCard = str.split("of");

@@ -11,23 +11,22 @@ height: 180px; width: 180px; display: block;
   border:solid; 
   height: 250px;
 }
-.card  {
-  font-size:180px;
-  text-align:right;
+#cardc  {
+  font-size:130px;
+  text-align:center;
   z-index: 99;
-  margin-top:-50px;
-  margin-right: 40px;
-  cursor:pointer;
-  border:solid;
-  height: 250px;
+      margin-top: 80px;
+   
 }
+#backs {
 
+}
 #num {
-  margin-top:-210px;
+  margin-top:-310px;
   color:black;
   font-size:130px;
-  text-align:left;
-  margin-left: 30px;
+  text-align:center;
+  margin-left: 10px;
   z-index: 99;
 }
 
@@ -39,12 +38,12 @@ height: 180px; width: 180px; display: block;
   text-align:center;
   z-index: 99;
   margin-top:-70px;
-  margin-right: 40px;
-  cursor:pointer;
-  border:solid;
+  margin-right: 20px;
+  
+  
   width:60px;
   height: 90px;
-  display:inline-block;
+  display:inline;
 };
 
 #ii, #hand{
