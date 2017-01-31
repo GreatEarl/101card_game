@@ -217,7 +217,7 @@ function setHand() {
     for (var j=0;j< playerAr.length; j++) {
     handcont = handcont + 
     ' <div id="'+playerAr[j].name +'of'+playerAr[j].suit  +'" class ="cardh"  style="color:'+playerAr[j].color+'">'+playerAr[j].suitcode +
-    '<div id="sname" style="color:'+playerAr[j].color+'"> '+playerAr[j].name +'</div>'+
+    '<div style="color:'+playerAr[j].color+'"> '+playerAr[j].name +'</div>'+
     '</div>'
     }
     $("#hand").html(handcont);
@@ -233,6 +233,19 @@ function setHand() {
 }
 
 
+function openII() {
+   
+    var ocont ='';
+    for (var j=0;j< iiAr.length; j++) {
+    ocont = ocont + 
+    ' <div id="'+iiAr[j].name +'of'+iiAr[j].suit  +'" class ="cardh"  style="color:'+iiAr[j].color+'">'+iiAr[j].suitcode +
+    '<div  style="color:'+iiAr[j].color+'"> '+iiAr[j].name +'</div>'+
+    '</div>'
+    }
+    $("#ii").html(ocont);
+     
+
+}
 
 
 
@@ -335,6 +348,9 @@ console.log(lastMove);
       }
     }
 
+openII();
+
+
 
    }
    else {
@@ -396,6 +412,8 @@ console.log(resArr[i]);
    //bodyCont = bodyCont+'';
 
 $("#resBody").html(bodyCont);
+
+
 
 
 

@@ -8,27 +8,27 @@
 </head>
 
 <body id="page-top" onload="initgame()">
-<div id ="indicators_gr" class="container" style="float:right; width: 100px; margin-top: -50px; margin-right: 20px;" >
-<div class="btn-group-vertical  btn" role="group" >
-  <button type="button" class="btn btn-default" id ="start" onclick=initgame()>start game</button>
-  <button type="button" class="btn btn-default" id ="next" onclick=initround()>next round</button>
-  <button type="button" class="btn btn-default" onclick = checkArr() >drop card</button>
-  <button type="button" class="btn btn-default" onclick = setiiArr() >ii take</button>
-</div>
 
-<button class="btn btn-primary btn-group-vertical" type="button" >
-  Turn <span class="badge" id="move">you</span>
-</button>
-</div>
+<nav class="navbar navbar-inverse">
 
-<div class="container">
-  
+   <ul class="nav navbar-nav"> 
+     <li class="active"><button type="button" class="btn btn-default" id ="start" onclick = initgame()>start game</button></li> 
+     <li><button type="button" class="btn btn-default" id ="next" onclick = initround()>next round</button></li> 
+     <li> <button type="button" class="btn btn-default" onclick = checkArr()>drop card</button></li>
+     <li> <button type="button" class="btn btn-default" onclick = setiiArr()>ii take</button></li>
+     <li> <button class="btn btn-primary " type="button"> Turn <span class="badge" id="move">you</span></button></li>
+     </ul>
+ 
 
+</nav>
+
+ <div class="x_panel">
  <div id ="ii" class="col-md-6 ">
  
  </div>
  <div class="clearfix"></div>
-
+ </div>
+<div class="x_panel">
  <div class="col-md-6">
    <div class="service-box" id="backs" style="float: left; width: 165px; ">
       <img src="back.jpg"/>
@@ -43,13 +43,15 @@
      </div>
  </div>
   <div class="clearfix"></div>
+  </div>
+  <div class="x_panel">
  <div id ="hand" class="col-md-6 ">
    
 </div>
-  
+  </div>
  
 
-<div class="container">
+<div class="x_panel">
   
 
 
