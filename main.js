@@ -413,7 +413,7 @@ console.log(resArr[i]);
 
 $("#resBody").html(bodyCont);
 
-
+  $("#MyArticle2").modal("show");
 
 
 
