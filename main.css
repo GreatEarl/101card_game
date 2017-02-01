@@ -18,9 +18,7 @@ height: 180px; width: 180px; display: block;
       margin-top: 80px;
    
 }
-#backs {
 
-}
 #num {
   margin-top:-310px;
   color:black;
@@ -30,9 +28,7 @@ height: 180px; width: 180px; display: block;
   z-index: 99;
 }
 
-.container{
-  margin-top: 70px;
-}
+
 .cardii  {
   font-size:30px;
   text-align:center;
@@ -62,3 +58,18 @@ height: 180px; width: 180px; display: block;
   display:inline-block;
 };
 
+  .navbar-nav {
+    width: 100%;
+    text-align: center;
+    > li {
+      float: left;
+      display: inline-block;
+    }
+  }
+
+  .container {
+  min-width: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
