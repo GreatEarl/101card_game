@@ -165,6 +165,8 @@ console.log('initround2');
  setII();
  setOpened();
  //$("#cards").html('stock');
+  $("#titleM").html("Results ");
+$("#next").prop('disabled', !gameOver);
 
 }
 
@@ -412,6 +414,16 @@ console.log(resArr[i]);
    //bodyCont = bodyCont+'';
 
 $("#resBody").html(bodyCont);
+
+if (resArr[resArr.length-1].ii > 101) {
+  $("#titleM").html("Game Over! Player won! ");
+  $("#next").prop('disabled', true);
+};
+
+if (resArr[resArr.length-1].player > 101) {
+  $("#titleM").html("Game Over! II won! ");
+  $("#next").prop('disabled', true);
+};
 
   $("#MyArticle2").modal("show");
 

@@ -59,6 +59,8 @@ height: 180px; width: 180px; display: block;
 };
 
   .navbar-nav {
+        padding-top: 5px;
+      vertical-align: middle;
     width: 100%;
     text-align: center;
     > li {
@@ -68,8 +70,10 @@ height: 180px; width: 180px; display: block;
   }
 
   .container {
+     
   min-width: 500px;
     display: flex;
     justify-content: center;
     align-items: center;
+       vertical-align: middle;
 }
