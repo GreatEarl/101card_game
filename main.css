@@ -59,7 +59,7 @@ height: 180px; width: 180px; display: block;
 };
 
   .navbar-nav {
-        padding-top: 5px;
+       
       vertical-align: middle;
     width: 100%;
     text-align: center;
@@ -76,4 +76,12 @@ height: 180px; width: 180px; display: block;
     justify-content: center;
     align-items: center;
        vertical-align: middle;
+}
+.qbtnred {
+    font-size: 30px;
+    color: red;
+}
+.qbtnblack {
+    font-size: 30px;
+    color: black;
 }

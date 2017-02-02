@@ -91,7 +91,7 @@
             </div>
         
             <div class="modal-body">
-                <table class = "table" id="restable">
+  <table class = "table" id="restable">
   <thead>
         <tr>
             <th>#</th>
@@ -123,7 +123,36 @@
 
 
 
+<div id="queenSelect" class="modal fade" tabindex="-1" style="display: none;z-index: 1998;">
+    <div class="modal-dialog">
+        <div class="modal-content" style="    width: 280px;" >
+      
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 id="titleM" class="modal-title">Select next suit</h4>
+            </div>
+        
+            <div class="modal-body">
+       <table class = "table" id="qtable">
+ 
 
+  <tbody id = "qBody">
+      <tr>
+        <td style="width: 40px;"> <button type="button" class="btn btn-default qbtnred" onclick = setNextSuite('&#x2666')>&#x2666 </button></td>
+        <td style="width: 40px;"><button type="button" class="btn btn-default qbtnblack" onclick = setNextSuite('&#x2663')>&#x2663 </button> </td>
+        <td style="width: 40px;"  ><button type="button" class="btn btn-default qbtnred" onclick = setNextSuite('&#x2661')>&#x2661 </button> </td>
+        <td ><button type="button" class="btn btn-default qbtnblack" onclick = setNextSuite('&#x2664')>&#x2664 </button> </td>
+      </tr>
+
+  </tbody>
+</table>
+         
+            </div>
+    
+        </div>
+    </div>
+ 
+</div>
 
   <!-- jQuery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>

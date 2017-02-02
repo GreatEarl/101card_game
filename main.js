@@ -48,12 +48,18 @@ var resArr = [];
 var iiResult;
 var playerResult;
 
+var queenSuit; 
 
 var i=0;
+
+function setNextSuite(nextsuite) {
+  queenSuit = nextsuite;
+ $("#queenSelect").modal("hide");
+}
+
+
 $("#backs").on("click", function() {
- 
-// alert($("#cards").html());
-if (!gameOver) {
+ if (!gameOver) {
     if (0<closedAr.length ){
         playerAr.push(closedAr.pop());
         setHand();
@@ -66,13 +72,12 @@ if (!gameOver) {
     }
 else {
   return;
- }
-
+   }
 });
+
 
 function refillClosed (){
     var lastCard = openedAr.pop();
-  //   console.log(lastCard);
     for (var k=0; k<openedAr.length; k++) {
        closedAr.push(openedAr.pop());
      }
@@ -91,9 +96,9 @@ function setiiArr(){
         setOpened();
    }
        }
-else {
-  return;
- }
+ else {
+   return;
+  }
 };
 
 function randomInteger(min, max) {
@@ -130,16 +135,13 @@ function initround() {
        }
  }
  
- while (closedAr.length < 36);
- // alert( closed.length );
- console.log (closedAr.length);
+while (closedAr.length < 36);
 
 var ti = 0;
 ti=randomInteger(0,1);
 
 if (ti == 0) {
   $("#move").html('me');
-   console.log('ii set');
    for (var i=0; i<4;i++) {
       iiAr.push(closedAr.pop());
    }
@@ -149,7 +151,6 @@ if (ti == 0) {
    }
 }
 else {
-  console.log('player set');
   $("#move").html('you');
   for (var i=0; i<5;i++) {
      iiAr.push(closedAr.pop());
@@ -164,31 +165,21 @@ console.log('initround2');
  setHand();
  setII();
  setOpened();
- //$("#cards").html('stock');
-  $("#titleM").html("Results ");
-$("#next").prop('disabled', !gameOver);
+ 
+ $("#titleM").html("Results "); 
+ $("#next").prop('disabled', !gameOver);
 
 }
 
 
 function initgame() {
-
-
-
  iiResult = 0;
  playerResult = 0;
- 
  resArr.length = 0;
 
+ $("#resBody").html('<tr><td></td><td></td> <td></td> </tr>');
 
-    
-
-$("#resBody").html('<tr><td></td><td></td> <td></td> </tr>');
-
-
-
-
-//first round
+ //first round
  initround();
 $("#next").prop('disabled', !gameOver);
 }
@@ -196,24 +187,18 @@ $("#next").prop('disabled', !gameOver);
 function setOpened () {
 if (!gameOver) {
 
-opencont = '<div id ="cardc" class = "card" >'+openedAr[openedAr.length-1].name+ '</div>'+
-           '<div id="num"> '+openedAr[openedAr.length-1].suitcode +' </div>';
+ opencont = '<div id ="cardc" class = "card" >'+openedAr[openedAr.length-1].name+ '</div>'+
+            '<div id="num"> '+openedAr[openedAr.length-1].suitcode +' </div>';
 
- $("#currents").html(opencont);     
-
- 
- $("#num").css("color",openedAr[openedAr.length-1].color);
- $("#cardc").css("color",openedAr[openedAr.length-1].color);
+  $("#currents").html(opencont);     
+  $("#num").css("color",openedAr[openedAr.length-1].color);
+  $("#cardc").css("color",openedAr[openedAr.length-1].color); 
+ }
 }
-
-}
-
-
 
 
 
 function setHand() {
-
    
     var handcont ='';
     for (var j=0;j< playerAr.length; j++) {
@@ -281,23 +266,39 @@ function releasecard () {
 }
 
 $('#hand').on("click", function(event) {
-   // var target = $(this).html();
-  var str = event.target.id;
-var selectedCard = str.split("of");
-console.log(selectedCard[0]);
-console.log(selectedCard[1]);
 
-for (var j=0;j< playerAr.length; j++) {
-  if ((playerAr[j].name==selectedCard[0]) && (playerAr[j].suit = selectedCard[1])) {
+var str = event.target.id;
+var selectedCard = str.split("of");
+
+// console.log(selectedCard[0]);
+// console.log(selectedCard[1]);
+
+
+for (var j=0; j < playerAr.length; j++) {
+  if ((playerAr[j].name == selectedCard[0]) && (playerAr[j].suit == selectedCard[1])) {
+
+  if (selectedCard[0] != "Q") {
+   if ((openedAr[openedAr.length-1].name == selectedCard[0]) | (openedAr[openedAr.length-1].suit == selectedCard[1]))  {
     openedAr.push(playerAr[j]);
     playerAr.splice(j, 1);
+   } 
+   else {
+     return;
+   }
+  }
+  else 
+  {
+      openedAr.push(playerAr[j]);
+    playerAr.splice(j, 1);
+  $("#queenSelect").modal("show");
+
+  }
   }
 
 }
+
 setOpened();
 setHand();
-
- 
 });
 
 
