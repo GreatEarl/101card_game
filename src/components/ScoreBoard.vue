@@ -69,16 +69,6 @@
       </div>
     </div>
 
-    <!-- Dynamic Hint Popup (Below Player Stats on Right Side) -->
-    <div v-if="gameState.bannerMessage" class="sidebar-hint-card">
-      <div class="hint-card-header">
-        <span>💡 GAME HINT</span>
-      </div>
-      <div class="hint-card-body">
-        {{ gameState.bannerMessage }}
-      </div>
-    </div>
-
     <!-- Rules Reference Reminder -->
     <div class="rules-quick-ref">
       <div class="ref-title">⚡ QUICK 101 RULES</div>
@@ -87,6 +77,16 @@
       <div class="ref-item">🃏 <strong>Card 9</strong> ➔ 0 points in hand.</div>
       <div class="ref-item">🌀 <strong>Card 8</strong> ➔ Draw until covered.</div>
       <div class="ref-item">🌟 <strong>Queen Last Card</strong> ➔ -20 / -40 pts bonus.</div>
+    </div>
+
+    <!-- Dynamic Hint Popup (Below Quick 101 Rules on Right Side) -->
+    <div v-if="gameState.bannerMessage" class="sidebar-hint-card">
+      <div class="hint-card-header">
+        <span>💡 GAME HINT</span>
+      </div>
+      <div class="hint-card-body">
+        {{ gameState.bannerMessage }}
+      </div>
     </div>
   </aside>
 </template>
