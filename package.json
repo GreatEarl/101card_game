@@ -1,8 +1,11 @@
 {
-  "name": "101",
-  "private": true,
-  "version": "0.0.0",
+  "name": "101-card-game",
+  "private": false,
+  "version": "0.0.1",
   "type": "module",
+  "description": "Simple 101 card game based on certain conventions/rules",
+  "author": "Ravil.Rocks",
+  "license": "MIT",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
