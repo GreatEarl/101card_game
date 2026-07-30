@@ -3,8 +3,19 @@
     <div class="brand">
       <div class="logo-icon">🂡</div>
       <div class="brand-text">
-        <h1 class="title">101 <span class="badge">CASINO DELUXE</span></h1>
-        <p class="subtitle">Vue 3 Single Player Strategy Card Game</p>
+        <h1 class="title">
+          101 
+          <a 
+            href="https://ravil.rocks" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            class="badge"
+            title="Visit Ravil.Rocks"
+          >
+            Made by Ravil.Rocks
+          </a>
+        </h1>
+        <p class="subtitle">Vue 3 single player 101 card game</p>
       </div>
     </div>
 
@@ -103,6 +114,14 @@ function toggleAudio() {
   padding: 2px 6px;
   border-radius: 4px;
   letter-spacing: 1px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.badge:hover {
+  background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(14, 165, 233, 0.4);
 }
 
 .subtitle {
