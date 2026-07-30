@@ -264,12 +264,6 @@ export function executeCardPlay(playerKey, card) {
     gameState.mustCover8 = false;
   }
 
-  // Check Round Win condition (Hand empty!)
-  if (gameState.players[playerKey].hand.length === 0) {
-    handleRoundEnd(playerKey, card);
-    return;
-  }
-
   // Handle Special Cards
   if (card.rank === 'Q') {
     sounds.queenWild();
@@ -284,10 +278,38 @@ export function executeCardPlay(playerKey, card) {
       gameState.activeSuit = chosenSuit;
       logEvent(`AI selects active suit: ${chosenSuit}`, 'special');
       setBanner(`👑 AI played Queen! New active suit is ${chosenSuit}`, 3000);
-      // AI played Queen; turn passes to opponent
+
+      // If AI played Queen as last card, AI wins round after suit selection!
+      if (gameState.players.ai.hand.length === 0) {
+        handleRoundEnd('ai', card);
+        return;
+      }
       switchTurn(opponentKey);
       return;
     }
+  }
+
+  if (card.rank === '8') {
+    sounds.specialAction();
+    gameState.mustCover8 = true;
+    logEvent(`🌀 8 Played! ${playerName} must cover immediately with same suit/rank or Queen.`, 'special');
+    
+    if (gameState.players[playerKey].hand.length === 0) {
+      logEvent(`🌀 ${playerName}'s last card was 8! ${playerName} must draw from stock deck to cover 8!`, 'warning');
+      setBanner(`🌀 Last card was 8! Draw from stock deck to cover 8!`, 3500);
+    } else {
+      setBanner(`🌀 8 Played! Cover with same suit/rank or Queen!`, 3000);
+    }
+    
+    // Player keeps turn to cover the 8!
+    checkTurnAfterSpecial(playerKey);
+    return;
+  }
+
+  // Check Round Win condition (Hand empty!) for non-8 cards
+  if (gameState.players[playerKey].hand.length === 0) {
+    handleRoundEnd(playerKey, card);
+    return;
   }
 
   if (card.rank === '6') {
@@ -329,16 +351,6 @@ export function executeCardPlay(playerKey, card) {
     return;
   }
 
-  if (card.rank === '8') {
-    sounds.specialAction();
-    gameState.mustCover8 = true;
-    logEvent(`🌀 8 Played! ${playerName} must cover immediately with same suit/rank.`, 'special');
-    setBanner(`🌀 8 Played! Cover with same suit/rank!`, 3000);
-    // Player keeps turn to cover the 8!
-    checkTurnAfterSpecial(playerKey);
-    return;
-  }
-
   // Normal card: turn passes to opponent
   switchTurn(opponentKey);
 }
@@ -350,6 +362,11 @@ export function selectQueenSuit(suitSymbol) {
 
   logEvent(`You selected active suit: ${suitSymbol}`, 'special');
   setBanner(`Active suit set to ${suitSymbol}`, 2500);
+
+  if (gameState.players.human.hand.length === 0) {
+    handleRoundEnd('human', { rank: 'Q', suit: suitSymbol });
+    return;
+  }
 
   // Turn passes to opponent after Queen suit selection
   switchTurn('ai');

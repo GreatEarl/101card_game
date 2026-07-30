@@ -43,7 +43,7 @@
             </div>
             <div class="table-row">
               <span class="card-tag">8</span>
-              <span class="effect">Must be covered immediately by same suit, rank 8, or ANY Queen (regardless of suit)!</span>
+              <span class="effect">Must be covered immediately by same suit, rank 8, or ANY Queen! If played blindly as 1st card or as the last card in hand, player must cover it (drawing from stock if needed) before turn ends/round ends.</span>
             </div>
             <div class="table-row">
               <span class="card-tag">Queen</span>
