@@ -35,19 +35,33 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted } from 'vue';
+import { ref, computed, watch, onMounted } from 'vue';
 import { gameState, savePlayerName } from '../engine/cardEngine.js';
 
 const inputName = ref('');
 const errorMessage = ref('');
 
-onMounted(() => {
-  if (gameState.players.human.name && gameState.players.human.name !== 'Player (You)') {
-    inputName.value = gameState.players.human.name;
+function loadInitialName() {
+  const existing = gameState.players.human.name;
+  const saved = localStorage.getItem('101_player_name');
+  if (existing && existing !== 'Player (You)') {
+    inputName.value = existing;
+  } else if (saved && saved.trim()) {
+    inputName.value = saved.trim();
   } else {
     inputName.value = 'Player 1';
   }
   validateInput();
+}
+
+onMounted(() => {
+  loadInitialName();
+});
+
+watch(() => gameState.showNameModal, (isOpen) => {
+  if (isOpen) {
+    loadInitialName();
+  }
 });
 
 const isValid = computed(() => {

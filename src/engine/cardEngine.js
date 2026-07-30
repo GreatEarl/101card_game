@@ -47,6 +47,9 @@ export function savePlayerName(name) {
     localStorage.setItem('101_player_name', trimmed);
   } catch (e) {}
   gameState.showNameModal = false;
+  
+  // Start first round of the match once name is submitted
+  startRound();
   return true;
 }
 
@@ -114,14 +117,11 @@ export function initGame() {
     const savedName = localStorage.getItem('101_player_name');
     if (savedName && savedName.trim()) {
       gameState.players.human.name = savedName.trim();
-    } else {
-      gameState.showNameModal = true;
     }
-  } catch (e) {
-    gameState.showNameModal = true;
-  }
+  } catch (e) {}
 
-  startRound();
+  // Prompt for player name every time a new game starts!
+  gameState.showNameModal = true;
 }
 
 export function startRound() {
