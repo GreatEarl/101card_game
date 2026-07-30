@@ -88,6 +88,15 @@
         {{ gameState.bannerMessage }}
       </div>
     </div>
+
+    <!-- Visitor Hits Counter Badge -->
+    <div class="hits-counter-container">
+      <img 
+        src="https://hits.seeyoufarm.dev/api/count/incr/badge.svg?url=https%3A%2F%2Fgreatearl.github.io%2F101card_game&count_bg=%230EA5E9&title_bg=%230F172A&icon=&title=visits&edge_flat=false" 
+        alt="Visits Counter" 
+        class="hits-badge-img"
+      />
+    </div>
   </aside>
 </template>
 
@@ -308,5 +317,19 @@ import { gameState } from '../engine/cardEngine.js';
   font-size: 0.73rem;
   color: #94a3b8;
   line-height: 1.3;
+}
+
+.hits-counter-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 10px;
+  margin-top: 4px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.hits-badge-img {
+  height: 20px;
+  border-radius: 4px;
 }
 </style>
